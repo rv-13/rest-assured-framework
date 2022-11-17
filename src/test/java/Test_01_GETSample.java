@@ -4,16 +4,16 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 
-public class Test_01_GET {
+public class Test_01_GETSample {
 
+    private static String getUrl = "https://reqres.in/api/users?page=2";
 
     @Test
     void test_01() {
-        Response response = get("https://reqres.in/api/users?page=2");
+        Response response = get(getUrl);
         System.out.println("Response:-" + response.getBody().asString());
         System.out.println("Response Time:-" + response.getTime());
         System.out.println("Status Code:-" + response.getStatusCode());
@@ -28,7 +28,7 @@ public class Test_01_GET {
     void test_02() {
 
         given()
-                .get("https://reqres.in/api/users?page=2")
+                .get(getUrl)
                 .then()
                 .statusCode(200)
                 .body("data.id[0]", equalTo(7));

@@ -5,12 +5,12 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 public class Tests_GET_Method {
-
+    private static String getUrl = "https://reqres.in/api/users?page=2";
     @Test
     public void test_01() {
 
         given()
-                .get("https://reqres.in/api/users?page=2")
+                .get(getUrl)
                 .then()
                 .statusCode(200)
                 .body("data.id[1]", equalTo(8))

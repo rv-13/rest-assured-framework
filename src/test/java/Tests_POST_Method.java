@@ -1,3 +1,4 @@
+import io.restassured.http.ContentType;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
@@ -19,6 +20,8 @@ public class Tests_POST_Method {
         System.out.println(requestbody);
 
         given()
+                .header("Content-Type", "application/json")
+                .contentType(ContentType.JSON).accept(ContentType.JSON)
                 .body(requestbody.toJSONString())
                 .when()
                 .post(postUrl)

@@ -12,9 +12,6 @@ public class Tests_PUT_Method {
 
     @Test
     public void test_01() {
-
-        HashMap<String, Object> map = new HashMap<>();
-
         JSONObject requestbody = new JSONObject();
         requestbody.put("name", "morpheus");
         requestbody.put("job", "leader");
@@ -33,9 +30,6 @@ public class Tests_PUT_Method {
 
     @Test
     public void test_02() {
-
-        HashMap<String, Object> map = new HashMap<>();
-
         JSONObject requestbody = new JSONObject();
         requestbody.put("name", "morpheus1");
         requestbody.put("job", "leader");

@@ -11,9 +11,6 @@ public class Tests_PATCH_Method {
 
     @Test
     public void test_01() {
-
-        HashMap<String, Object> map = new HashMap<>();
-
         JSONObject requestbody = new JSONObject();
         requestbody.put("name", "morpheusUpdated");
         requestbody.put("job", "leader");

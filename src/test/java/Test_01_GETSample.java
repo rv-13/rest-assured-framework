@@ -1,5 +1,6 @@
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
@@ -12,7 +13,7 @@ public class Test_01_GETSample {
 
     @Test
     void test_01() {
-        Response response = get(getUrl);
+        Response response = get(getUrl).thenReturn();
         System.out.println("Response:-" + response.getBody().asString());
         System.out.println("Response Time:-" + response.getTime());
         System.out.println("Status Code:-" + response.getStatusCode());
@@ -30,11 +31,13 @@ public class Test_01_GETSample {
                 .get(getUrl)
                 .then()
                 .statusCode(200)
-                .body("data.id[0]", equalTo(7));
+                .body("data.id[0]", equalTo(7))
+        .log().all();
     }
 
     //Mocked Json Server Test_03 sample
 
+    @Ignore
     @Test
     public void test_03(){
         basePath = "http://localhost:3000";

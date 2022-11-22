@@ -1,3 +1,5 @@
+package crudmethod_tests;
+
 import io.restassured.http.ContentType;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;

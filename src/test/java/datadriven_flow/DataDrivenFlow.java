@@ -1,6 +1,9 @@
+package datadriven_flow;
+
 import io.restassured.http.ContentType;
 import org.json.simple.JSONObject;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -53,6 +56,17 @@ public class DataDrivenFlow extends DataRepoForTests {
     @Test(dataProvider = "dataProviderForDeleteCalls")
     public void test_01_delete(int id) {
 
+        given()
+                .delete(deleteUrl + id)
+                .then()
+                .statusCode(204)
+                .log().all();
+    }
+
+    @Parameters({"id"})
+    @Test
+    public void test_02_delete(int id) {
+System.out.print("Parameter Id:-"+id);
         given()
                 .delete(deleteUrl + id)
                 .then()

@@ -1,3 +1,5 @@
+package crudmethod_tests;
+
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;

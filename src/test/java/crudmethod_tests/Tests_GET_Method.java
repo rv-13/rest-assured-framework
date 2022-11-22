@@ -1,3 +1,5 @@
+package crudmethod_tests;
+
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 

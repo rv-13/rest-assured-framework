@@ -2,8 +2,6 @@ import io.restassured.http.ContentType;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-
 import static io.restassured.RestAssured.given;
 
 public class Tests_POST_Method {

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class DataDrivenFlow {
+public class DataDrivenFlow extends DataRepoForTests {
 
     private static String postUrl = "https://reqres.in/api/users";
     private static String deleteUrl = "https://reqres.in/api/users/";
@@ -13,6 +13,25 @@ public class DataDrivenFlow {
 
     @Test(dataProvider = "dataProviderForPostcalls")
     public void test_01_post(String name, String job) {
+        JSONObject requestbody = new JSONObject();
+        requestbody.put("name", name);
+        requestbody.put("job", job);
+        System.out.println("requestbody created :-" + requestbody);
+
+        given()
+                .header("Content-Type", "application/json")
+                .contentType(ContentType.JSON).accept(ContentType.JSON)
+                .body(requestbody.toJSONString())
+                .when()
+                .post(postUrl)
+                .then()
+                .statusCode(201)
+                .log().all();
+
+    }
+
+    @Test(dataProvider = "dataProviderForPostcallsfromDataRepo")
+    public void test_02_post(String name, String job) {
         JSONObject requestbody = new JSONObject();
         requestbody.put("name", name);
         requestbody.put("job", job);

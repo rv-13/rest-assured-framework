@@ -8,8 +8,6 @@ import java.io.IOException;
 
 public class ExcelUtils {
 
-//    public static String userDir = System.getProperty("user.dir");
-//    public static String excelPath = userDir + "/rest-assured-framework/data/TestData.xlsx";
     static DataFormatter dataFormatter = new DataFormatter();
     static XSSFWorkbook workbook;
     static XSSFSheet sheet;

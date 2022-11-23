@@ -10,5 +10,8 @@ public class ExcelUtilsTestFlows {
 
     public static void main(String[] args) throws IOException {
         ExcelUtils excelUtils = new ExcelUtils(excelPath, sheetName);
+        excelUtils.getRowCount();
+        excelUtils.getCellData(1, 0);
+        excelUtils.getCellData(1, 1);
     }
 }

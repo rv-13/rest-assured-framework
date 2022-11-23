@@ -8,9 +8,9 @@ import java.io.IOException;
 
 public class ExcelUtils {
 
-    static DataFormatter dataFormatter = new DataFormatter();
-    static XSSFWorkbook workbook;
-    static XSSFSheet sheet;
+    public static DataFormatter dataFormatter = new DataFormatter();
+    public static XSSFWorkbook workbook;
+    public static XSSFSheet sheet;
 
     public ExcelUtils(String excelPath, String sheetName) throws IOException {
         workbook = new XSSFWorkbook(excelPath);
@@ -18,13 +18,13 @@ public class ExcelUtils {
     }
 
 
-    public static void getRowCount() throws IOException {
+    public void getRowCount() throws IOException {
         int rowCount = sheet.getPhysicalNumberOfRows();
         System.out.println("RowCount:-" + rowCount);
     }
 
-    public static void getCellData() throws IOException {
-        Object cellValue = dataFormatter.formatCellValue(sheet.getRow(1).getCell(0));
+    public void getCellData(int rowNumber, int cellNumber) throws IOException {
+        Object cellValue = dataFormatter.formatCellValue(sheet.getRow(rowNumber).getCell(cellNumber));
         System.out.println("cellValue:-" + cellValue);
     }
 }
